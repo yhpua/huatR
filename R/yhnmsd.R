@@ -64,6 +64,11 @@ yhnmsd <- function(data, mydv, dtpoint, tgroup, est_d = 2, ci_d = 2, propcut){
 
 
 
+#' round variables
+#'
+#' @param x variable
+#' @param digits number of digits
+#' @param trail trailing zeros
 yhround_sub <- function(x, digits, trail=TRUE){
   ## yhround create either numeric and character vector with specified decimal places
   ## trail = TRUE: character vector with trailing zeros
@@ -87,6 +92,6 @@ yhround_sub <- function(x, digits, trail=TRUE){
 
   return(x)
 }
-yhround <-Vectorize(yhround_sub)
+yhround <- Vectorize(yhround_sub)
 
 
