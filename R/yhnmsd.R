@@ -1,4 +1,4 @@
-#' @title Number, mean (or proportion) SD (or percentages)
+#' Number, mean (or proportion) SD (or percentages)
 #' @description This function provides descriptive statistics of response variable by study groups and discrete timepoints.
 #' I'm aware that such functions are "gao-dua-du" (Hokkien: "ubiquitous") in CRAN but I have customized this for my needs.
 #'
@@ -17,14 +17,6 @@
 #' yhnmsd(data = mtcars, mydv = "qsec", dtpoint = "am", tgroup = "vs")
 #' }
 yhnmsd <- function(data, mydv, dtpoint, tgroup, est_d = 2, ci_d = 2, propcut){
-
-
-  if (FALSE) {
-  # yhnmsd summarizes RCT results
-  # estimate n() and mean-sd/prop by treatment group (tgroup) and discrete timepoints (dtpoint)
-  # yhnmsd(data = mtcars, mydv = "qsec", dtpoint = "am", tgroup = "vs")
-  }
-
 
   options(dplyr.summarise.inform = FALSE)
 
@@ -109,6 +101,9 @@ yhround_sub <- function(x, digits, trail=TRUE){
 #' yhround(mtcars$qsec, 0)
 #' }
 yhround <- Vectorize(yhround_sub)
+
+
+
 
 
 
