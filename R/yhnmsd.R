@@ -12,9 +12,12 @@
 #' @export
 yhnmsd <- function(data, mydv, dtpoint, tgroup, est_d = 2, ci_d = 2, propcut){
 
+
+  if (FALSE) {
   # yhnmsd summarizes RCT results
   # estimate n() and mean-sd/prop by treatment group (tgroup) and discrete timepoints (dtpoint)
   # yhnmsd(data = mtcars, mydv = "qsec", dtpoint = "am", tgroup = "vs")
+  }
 
 
   options(dplyr.summarise.inform = FALSE)
