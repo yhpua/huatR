@@ -2,7 +2,7 @@
 % Please edit documentation in R/yhnmsd.R
 \name{yhnmsd}
 \alias{yhnmsd}
-\title{Descriptive statistics of response variable by group and timepoint}
+\title{Number, mean (or proportion) SD (or percentages)}
 \usage{
 yhnmsd(data, mydv, dtpoint, tgroup, est_d = 2, ci_d = 2, propcut)
 }
@@ -25,5 +25,11 @@ yhnmsd(data, mydv, dtpoint, tgroup, est_d = 2, ci_d = 2, propcut)
 a dataframe
 }
 \description{
-Descriptive statistics of response variable by group and timepoint
+This function provides descriptive statistics of response variable by study groups and discrete timepoints.
+I'm aware that such functions are "gao-dua-du" (Hokkien: "ubiquitous") in CRAN but I have customized this for my needs.
+}
+\examples{
+\dontrun{
+yhnmsd(data = mtcars, mydv = "qsec", dtpoint = "am", tgroup = "vs")
+}
 }

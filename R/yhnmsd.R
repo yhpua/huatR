@@ -1,4 +1,6 @@
-#' Descriptive statistics of response variable by group and timepoint
+#' @title Number, mean (or proportion) SD (or percentages)
+#' @description This function provides descriptive statistics of response variable by study groups and discrete timepoints.
+#' I'm aware that such functions are "gao-dua-du" (Hokkien: "ubiquitous") in CRAN but I have customized this for my needs.
 #'
 #' @param data    (dataframe) dataframe of the study
 #' @param mydv    (string)    response variable
@@ -10,6 +12,10 @@
 #'
 #' @return a dataframe
 #' @export
+#' @examples
+#' \dontrun{
+#' yhnmsd(data = mtcars, mydv = "qsec", dtpoint = "am", tgroup = "vs")
+#' }
 yhnmsd <- function(data, mydv, dtpoint, tgroup, est_d = 2, ci_d = 2, propcut){
 
 
@@ -96,7 +102,15 @@ yhround_sub <- function(x, digits, trail=TRUE){
   return(x)
 }
 
-#' @export yhround
+#' round variables
+#' @export
+#' @examples
+#' \dontrun{
+#' yhround(mtcars$qsec, 0)
+#' }
 yhround <- Vectorize(yhround_sub)
+
+
+
 
 
