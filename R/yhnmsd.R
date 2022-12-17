@@ -95,6 +95,8 @@ yhround_sub <- function(x, digits, trail=TRUE){
 
   return(x)
 }
+
+#' @export yhround
 yhround <- Vectorize(yhround_sub)
 
 
