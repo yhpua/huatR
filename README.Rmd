@@ -16,14 +16,16 @@ set.seed(11)
 
 # huatR
 
-`huatR` (**H**appy **U**sing **a**nd **T**inkering with `R`)[^1] contains `R` functions that I use in my projects. I have finally appreciated the advantages of creating a package to manage one's R functions. `huatR` functions are specifically written for the specific needs of the author (hence the self-serving `yh` prefix) and are probably **not** of interest to most (99.9999%) people. 
+`huatR` (**H**appy **U**sing **a**nd **T**inkering with `R`)[^1] contains `R` functions that I use in my projects. I have finally appreciated the advantages of creating a package to manage one's R functions. `huatR` functions are specifically written for the specific needs of the author (hence the self-serving `yh` prefix) and are probably **not** of interest to most (88.888888 + 8.88888888 + 0.88888888 + 0.088888888% = 98.7% [^2])  people. 
 
 
 [^1]: huatR <https://en.wiktionary.org/wiki/Citations:huat_ah>
-
+[^2]: The [fixation with 8](https://en.wikipedia.org/wiki/Chinese_numerology#Eight)
 
 ## Installation
-That said, if you still wish to use it (`NO PANTANG` but *caveat emptor*!), you can install the development version from [GitHub](https://github.com/) with:
+That said, if you still wish to use it (`NO PANTANG`[^3] but *caveat emptor*!), you can install the development version from [GitHub](https://github.com/) with:
+
+[^3]: [Pantang](https://en.wiktionary.org/wiki/pantang)
 
 ``` r
 # install.packages("devtools")
