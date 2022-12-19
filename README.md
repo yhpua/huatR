@@ -4,12 +4,11 @@
 # huatR
 
 `huatR` (**H**appy **U**sing **a**nd **T**inkering with `R`)[^1]
-contains `R` functions that I use in my projects. I have finally
-appreciated the advantages of creating a package to manage one’s R
-functions. `huatR` functions are specifically written for the specific
-needs of the author (hence the self-serving `yh` prefix) and are
-probably **not** of interest to most (88.888888 + 8.88888888 +
-0.88888888 + 0.088888888% = 98.7% [^2]) people.
+contains `R` functions that I use in my projects. Please note that
+`huatR` functions are specifically written for the specific needs of the
+author (which explains the self-serving `yh` prefix) and are probably
+**not** of interest to most (88.888888 + 8.88888888 + 0.88888888 +
+0.088888888 $\approx$ 98.7% [^2]) people.
 
 ## Installation
 
@@ -25,24 +24,8 @@ devtools::install_github("yhpua/huatR")
 ## Example
 
 ``` r
-library(huatR)
-pmtoc()
-#> 
-#> Yonghao miscellaneous R functions  
-#> 
-#> Descriptive Stats  
-#> 
-#> yhnmsd() generates descriptive stats
-#> yhround() round numbers
-#> 
-#> 
-#> 
-#> Missing values  
-#> 
-#> yhareg generates formula to be used in aregimpute() 
-#> 
-#> 
-#> 
+# library(huatR)
+# yhnmsd(data = mtcars, mydv = "qsec", dtpoint = "am", tgroup = "vs")
 ```
 
 ## Code of Conduct
@@ -53,7 +36,7 @@ project, you agree to abide by its terms.
 
 Good Luck & Huat ah!!
 
-[^1]: huatR <https://en.wiktionary.org/wiki/Citations:huat_ah>
+[^1]: huatR <https://en.wiktionary.org/wiki/huat_ah>
 
 [^2]: The [fixation with
     8](https://en.wikipedia.org/wiki/Chinese_numerology#Eight)
