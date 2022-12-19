@@ -27,12 +27,6 @@ devtools::install_github("yhpua/huatR")
 # yhnmsd(data = mtcars, mydv = "qsec", dtpoint = "am", tgroup = "vs")
 ```
 
-## Code of Conduct
-
-Please note that the ‘huatR’ project is released with a [Contributor
-Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this
-project, you agree to abide by its terms.
-
 Good Luck & Huat ah!!
 
 [^1]: huatR <https://en.wiktionary.org/wiki/huat_ah>
