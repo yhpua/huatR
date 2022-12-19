@@ -12,9 +12,8 @@ author (which explains the self-serving `yh` prefix) and are probably
 
 ## Installation
 
-That said, if you still wish to use it (`NO PANTANG`[^3] but *caveat
-emptor*!), you can install the development version from
-[GitHub](https://github.com/) with:
+That said, if you still wish to use it[^3], you can install the
+development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -38,7 +37,9 @@ Good Luck & Huat ah!!
 
 [^1]: huatR <https://en.wiktionary.org/wiki/huat_ah>
 
-[^2]: The [fixation with
+[^2]: Why the [fixation with the number
     8](https://en.wikipedia.org/wiki/Chinese_numerology#Eight)
 
-[^3]: [Pantang](https://en.wiktionary.org/wiki/pantang)
+[^3]: I am not being
+    [**pantang**](https://en.wiktionary.org/wiki/pantang) here but the
+    codes are likely to balk. So, the *caveat emptor* principle applies!
