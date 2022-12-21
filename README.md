@@ -1,5 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end -->
+
+<br> <span style="color:red"> ***This package is currently under active
+development and the code subject to change.*** </span>
 
 # huatR
 
