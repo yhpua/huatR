@@ -11,12 +11,12 @@ development and the code subject to change.*** </span>
 
 # huatR
 
-`huatR` (**H**appy **U**sing **a**nd **T**inkering with `R`)[^1]
-contains `R` functions that I use in my projects. Please note that
-`huatR` functions are specifically written for the specific needs of the
-author (which explains the self-serving `yh` prefix) and are probably
-**not** of interest to most (88.888888 + 8.88888888 + 0.88888888 +
-0.088888888 $\approx$ 98.7% [^2]) people.
+`huatR` (**h**appy **u**sing **a**nd **t**eaching `R`)[^1] contains `R`
+functions that I use in my projects. Please note that `huatR` functions
+are specifically written for the specific needs of the author (which
+explains the self-serving `yh` prefix) and are probably **not** of
+interest to most (88.888888 + 8.88888888 + 0.88888888 + 0.088888888
+$\approx$ 98.7% [^2]) people.
 
 ## Installation
 
