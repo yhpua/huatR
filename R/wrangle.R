@@ -165,5 +165,30 @@ yhrecode <- function(var, recode_rules, num_output=TRUE){
 }
 
 
+#' clean up inconsistent ptid
+#'
+#'
+#'
+#' @param idvar   assume idvar is coded as ID001
+#' @param width
+#' @param name_prefix
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' mtcars %>% mutate(carb_id = yhfixid(carb, name_prefix = "mtcars"))
+#' }
+yhfixid <- function (idvar, width = 3, name_prefix = "ID" ) {
+  #' clean up inconsistent ptid
+  #' assume idvar is coded as ID001
+  #' mtcars %>% mutate(carb_id = yhfixid(carb, name_prefix = "mtcars"))
 
+  ptnum         <- readr::parse_number(as.character(idvar)) %>%
+    stringr::str_pad(width = width, side = "left", pad = "0")
+  idvar_cleaned <- paste0(name_prefix, ptnum )
+  return (idvar_cleaned)
+
+}
 
