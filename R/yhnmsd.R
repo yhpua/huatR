@@ -6,6 +6,7 @@
 #' @param mydv    (string)    response variable
 #' @param dtpoint (string)    discrete timepoints
 #' @param tgroup  (string)    treatment group variable
+#' @param include_n  (logical)    display n
 #' @param est_d   (numeric)   number of decimal places for point estimate
 #' @param ci_d    (numeric)   number of decimal places for CI
 #' @param propcut (numeric)   cutpoint to create proportions (descriptive purposes)
@@ -16,7 +17,13 @@
 #' \dontrun{
 #' yhnmsd(data = mtcars, mydv = "qsec", dtpoint = "am", tgroup = "vs")
 #' }
-yhnmsd <- function(data, mydv, dtpoint, tgroup, est_d = 2, ci_d = 2, propcut){
+yhnmsd <- function(data, mydv, dtpoint, tgroup, include_n = TRUE,
+                   est_d = 2, ci_d = 2, propcut){
+
+  # yhnmsd summarizes RCT results
+  # estimate n() and mean-sd/prop by treatment group (tgroup) and discrete timepoints (dtpoint)
+  # yhnmsd(data = mtcars, mydv = "qsec", dtpoint = "am", tgroup = "vs")
+
 
   options(dplyr.summarise.inform = FALSE)
 
@@ -32,7 +39,7 @@ yhnmsd <- function(data, mydv, dtpoint, tgroup, est_d = 2, ci_d = 2, propcut){
   if( missing(propcut) || is.na(propcut)   ) {
     ## compute mean and SD
 
-    nmsd <-
+    nmsd_1 <-
       df_groupby %>%
       summarise(across(!!mydv, ~list(
         c( sum(!is.na(.)), smean.sd(.x) ) %>%            # create vector
@@ -40,27 +47,50 @@ yhnmsd <- function(data, mydv, dtpoint, tgroup, est_d = 2, ci_d = 2, propcut){
           as_tibble_row))) %>%                # convert output to wide tibble
       unnest_wider(.data[[mydv]]) %>%
       data.frame() %>%                        # so that yhestci() will work
-      mutate(myestci1 = yhestci(mydf=., "m", "SD", est_digit = est_d, ci_digit = ci_d)) %>%
-      mutate(myestci = str_glue("{myestci1}; {n}")) %>%
-      dplyr::select(.data[[dtpoint]], .data[[tgroup]], myestci) %>%
-      pivot_wider(names_from = .data[[tgroup]], values_from = myestci) %>%
-      mutate(mydv = mydv) %>%
-      dplyr::select(mydv, everything())
+      mutate(myestci1 = yhestci(mydf=., "m", "SD", est_digit = est_d, ci_digit = ci_d))
+
+    if (include_n){
+
+      nmsd <- nmsd_1 %>%
+        mutate(myestci = str_glue("{myestci1}; {n}")) %>%
+        dplyr::select(.data[[dtpoint]], .data[[tgroup]], myestci) %>%
+        pivot_wider(names_from = .data[[tgroup]], values_from = myestci) %>%
+        mutate(mydv = mydv) %>%
+        dplyr::select(mydv, everything())
+
+    } else {
+      nmsd <- nmsd_1 %>%
+        mutate(myestci = str_glue("{myestci1}")) %>%
+        dplyr::select(.data[[dtpoint]], .data[[tgroup]], myestci) %>%
+        pivot_wider(names_from = .data[[tgroup]], values_from = myestci) %>%
+        mutate(mydv = mydv) %>%
+        dplyr::select(mydv, everything())
+    }
+
 
   } else {
 
-    nmsd <-
+    nmsd_1 <-
       df_groupby %>%
       summarise(across(c(!!mydv), ~ list(yhprop(.x >= propcut))  )) %>%
-      unnest_wider(.data[[mydv]]) %>%
-      mutate(myestci = str_glue("{num} ({prop}); {total_n}") ) %>%
-      dplyr::select(.data[[dtpoint]], .data[[tgroup]], myestci) %>%
-      pivot_wider(names_from = .data[[tgroup]], values_from = myestci)
-  }
+      unnest_wider(.data[[mydv]])
 
+    if (include_n){
+      nmsd <- nmsd_1 %>%
+        mutate(myestci = str_glue("{num} ({prop}); {total_n}") ) %>%
+        dplyr::select(.data[[dtpoint]], .data[[tgroup]], myestci) %>%
+        pivot_wider(names_from = .data[[tgroup]], values_from = myestci)
+    } else {
+      nmsd <- nmsd_1 %>%
+        mutate(myestci = str_glue("{num} ({prop})") ) %>%
+        dplyr::select(.data[[dtpoint]], .data[[tgroup]], myestci) %>%
+        pivot_wider(names_from = .data[[tgroup]], values_from = myestci)
+    }
+  }
 
   return(nmsd)
 }
+
 
 
 
